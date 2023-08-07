@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "TOPDesk NHSMail Helper",
+  "version": "0.0.1",
+  "description": "Aims to reduce the loading time by eliminating the need to search for known NHSmail User Accounts",
+  "content_scripts": [{
+    "matches": ["*://scw.topdesk.net/*"],
+    "js": ["inject.js"],
+    "match_about_blank": true,
+    "match_origin_as_fallback": true
+  }]
+}
