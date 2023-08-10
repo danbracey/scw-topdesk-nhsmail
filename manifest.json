@@ -8,5 +8,20 @@
     "js": ["inject.js"],
     "match_about_blank": true,
     "match_origin_as_fallback": true
-  }]
+  }],
+  "permissions": [
+    "webRequest",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "mango_sw_nhsmail.js"
+  },
+  "host_permissions": [
+    "*://scw.topdesk.net/tas/secure/*"
+  ],
+  "externally_connectable": {
+    "matches": [
+      "*://scw.topdesk.net/tas/secure/*"
+    ]
+  }
 }

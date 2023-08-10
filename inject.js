@@ -1,6 +1,6 @@
+console.log("Initialised NHSmail Helper Script for TOPDesk");
+
 function init() {
-    console.log("Initialised NHSmail Helper Script for TOPDesk");
-    const currentEmail = null;
     const pattern = new RegExp("^[a-zA-Z0-9._%+-]+@nhs.net$");
 
     var iframe = document.getElementsByTagName('iframe');
@@ -28,3 +28,11 @@ function returnHTML(email) {
 }
 
 init();
+
+// Content script can listen for messages from the background script
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.action === "reinitialize") {
+        console.log("Received reinitialize message from service worker");
+        init(); // Call your content script's function here
+    }
+});
